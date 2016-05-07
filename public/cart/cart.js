@@ -44,16 +44,21 @@ angular.module('cart', ['ngRoute'])
         ]
       }
     ];
-      $scope.total = 0;
-      $scope.cart = [];
+      $scope.cart = {
+          total: 0,
+          items: []
+    };
 
       $scope.toggleItemInCart = function(item){
-        if($scope.cart.indexOf(item)!= -1) {
-          $scope.cart.splice($scope.cart.indexOf(item), 1);
-          $scope.total -= item.amount;
+        var cart = $scope.cart;
+        if(cart.items.indexOf(item)!= -1) {
+          cart.items.splice(cart.items.indexOf(item), 1);
+          cart.total -= item.amount;
+
+
         }else{
-          $scope.cart.push(item);
-          $scope.total += item.amount;
+          cart.items.push(item);
+          cart.total += item.amount;
         }
       }
 }]);

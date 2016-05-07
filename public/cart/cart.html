@@ -24,7 +24,11 @@
                   <h3 class="panel-title">Total</h3>
               </div>
               <div class="panel-body">
-                  <h2>{{ total }}</h2>
+                  <h2>Total : {{ cart.total }} €</h2>
+                  <ul>
+                      <li ng-repeat="item in cart.items">
+                          {{ item.name }} : {{ item.amount }}€</li>
+                  </ul>
               </div>
           </div>
           <div class="text-center">

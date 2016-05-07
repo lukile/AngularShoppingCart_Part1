@@ -10,7 +10,7 @@ angular.module('cart', ['ngRoute'])
 }])
 
 .controller('CartCtrl', ['$scope', function($scope) {
-    $scope.categories = [
+      $scope.categories = [
       {
         name: 'Cuisine',
         items: [
@@ -44,4 +44,16 @@ angular.module('cart', ['ngRoute'])
         ]
       }
     ];
+      $scope.total = 0;
+      $scope.cart = [];
+
+      $scope.toggleItemInCart = function(item){
+        if($scope.cart.indexOf(item)!= -1) {
+          $scope.cart.splice($scope.cart.indexOf(item), 1);
+          $scope.total -= item.amount;
+        }else{
+          $scope.cart.push(item);
+          $scope.total += item.amount;
+        }
+      }
 }]);

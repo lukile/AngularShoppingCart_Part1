@@ -8,9 +8,11 @@
                     <h3 class="panel-title">{{ category.name }}</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="radio"
+                    <div class="item"
                             ng-repeat="item in category.items">
-                        <label><input type="radio" name="optradio">{{ item.name }} : {{ item.amount }}€</label>
+                        <label><input type="checkbox"
+                                ng-click="toggleItemInCart(item)">
+                            {{ item.name }} : {{ item.amount }}€</label>
                     </div>
                 </div>
             </div>
@@ -22,7 +24,7 @@
                   <h3 class="panel-title">Total</h3>
               </div>
               <div class="panel-body">
-                  <h2>Rs. 100</h2>
+                  <h2>{{ total }}</h2>
               </div>
           </div>
           <div class="text-center">
